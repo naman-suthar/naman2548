@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Naman Suthar, Android developer
 ▶ https://play.google.com/store/apps/developer?id=Naman+Suthar
-- 👀 I’m love to meet new peoples and learn new technologies everyday
+- 👀 I love to meet new peoples and learn new technologies everyday
 - 🌱 I’m currently learning MERN.
 - 📫 How to reach me
 📷 https://www.instagram.com/like_a_namn/?hl=en
