@@ -35,14 +35,17 @@ dependencies {
     // Modules
     implementation(project(":game:engine"))
     implementation(project(":design-system"))
+    implementation(project(":core:data"))
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.bundles.lifecycle)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
+    implementation(libs.compose.material.icons.extended)
 
     // Koin
     implementation(libs.bundles.koin)

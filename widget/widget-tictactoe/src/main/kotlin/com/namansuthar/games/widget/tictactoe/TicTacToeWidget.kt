@@ -7,6 +7,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionParametersOf
 import androidx.glance.action.clickable
@@ -58,7 +59,7 @@ fun TicTacToeWidgetContent(glanceId: GlanceId) {
     Box(
         modifier = GlanceModifier
             .fillMaxSize()
-            .background(ColorProvider(android.graphics.Color.parseColor("#1E293B")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#1E293B"))))
             .cornerRadius(16.dp)
             .padding(12.dp)
     ) {
@@ -78,7 +79,7 @@ fun TicTacToeWidgetContent(glanceId: GlanceId) {
                     style = TextStyle(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ColorProvider(android.graphics.Color.WHITE)
+                        color = ColorProvider(Color(android.graphics.Color.WHITE))
                     )
                 )
             }
@@ -143,7 +144,7 @@ private fun GameCell(
         modifier = GlanceModifier
             .size(size)
             .padding(2.dp)
-            .background(ColorProvider(android.graphics.Color.parseColor("#334155")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#334155"))))
             .cornerRadius(4.dp)
             .clickable(
                 actionRunCallback<PlaceMarkerAction>(
@@ -170,7 +171,7 @@ private fun ControlButton(
         modifier = GlanceModifier
             .height(32.dp)
             .padding(horizontal = 12.dp)
-            .background(ColorProvider(android.graphics.Color.parseColor("#3B82F6")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#3B82F6"))))
             .cornerRadius(8.dp)
             .clickable(onClick),
         contentAlignment = Alignment.Center
@@ -180,7 +181,7 @@ private fun ControlButton(
             style = TextStyle(
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = ColorProvider(android.graphics.Color.WHITE)
+                color = ColorProvider(Color(android.graphics.Color.WHITE))
             )
         )
     }

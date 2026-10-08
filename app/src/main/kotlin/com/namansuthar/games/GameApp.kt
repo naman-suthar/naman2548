@@ -1,5 +1,9 @@
 package com.namansuthar.games
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -73,6 +77,7 @@ fun GameApp(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun GamePlaceholderScreen(
     gameId: String,
@@ -107,6 +112,7 @@ private fun GamePlaceholderScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SettingsPlaceholderScreen(onBack: () -> Unit) {
     androidx.compose.material3.Scaffold(

@@ -5,6 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
+import androidx.glance.appwidget.cornerRadius
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.Dp
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionParametersOf
 import androidx.glance.action.clickable
@@ -88,7 +92,7 @@ fun Game2048WidgetContent(
     Box(
         modifier = GlanceModifier
             .fillMaxSize()
-            .background(ColorProvider(android.graphics.Color.parseColor("#FAF8EF")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#FAF8EF"))))
             .cornerRadius(16.dp)
             .padding(8.dp)
     ) {
@@ -239,7 +243,7 @@ private fun LargeWidgetLayout(state: Game2048State, widgetId: String) {
 }
 
 @Composable
-private fun GameGrid(grid: List<List<Int>>, cellSize: DpSize) {
+private fun GameGrid(grid: List<List<Int>>, cellSize: Dp) {
     Column(
         modifier = GlanceModifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -259,7 +263,7 @@ private fun GameGrid(grid: List<List<Int>>, cellSize: DpSize) {
 }
 
 @Composable
-private fun GameTile(value: Int, size: DpSize) {
+private fun GameTile(value: Int, size: Dp) {
     val backgroundColor = getTileColor(value)
     val textColor = if (value <= 4) {
         android.graphics.Color.parseColor("#776E65")
@@ -271,7 +275,7 @@ private fun GameTile(value: Int, size: DpSize) {
         modifier = GlanceModifier
             .size(size)
             .padding(2.dp)
-            .background(ColorProvider(backgroundColor))
+            .background(ColorProvider(Color(backgroundColor)))
             .cornerRadius(4.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -280,12 +284,12 @@ private fun GameTile(value: Int, size: DpSize) {
                 text = value.toString(),
                 style = TextStyle(
                     fontSize = when {
-                        value < 100 -> (size.width.value * 0.4f).sp
-                        value < 1000 -> (size.width.value * 0.35f).sp
-                        else -> (size.width.value * 0.3f).sp
+                        value < 100 -> (size.value * 0.4f).sp
+                        value < 1000 -> (size.value * 0.35f).sp
+                        else -> (size.value * 0.3f).sp
                     },
                     fontWeight = FontWeight.Bold,
-                    color = ColorProvider(textColor)
+                    color = ColorProvider(Color(textColor))
                 )
             )
         }
@@ -355,7 +359,7 @@ private fun ControlButton(
     Box(
         modifier = GlanceModifier
             .size(48.dp)
-            .background(ColorProvider(android.graphics.Color.parseColor("#8F7A66")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#8F7A66"))))
             .cornerRadius(8.dp)
             .clickable(onClick),
         contentAlignment = Alignment.Center
@@ -365,7 +369,7 @@ private fun ControlButton(
             style = TextStyle(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                color = ColorProvider(android.graphics.Color.WHITE)
+                color = ColorProvider(Color(android.graphics.Color.WHITE))
             )
         )
     }
@@ -382,10 +386,10 @@ private fun ActionButton(
             .width(80.dp)
             .height(40.dp)
             .background(
-                ColorProvider(
+                ColorProvider(Color(
                     if (enabled) android.graphics.Color.parseColor("#8F7A66")
                     else android.graphics.Color.parseColor("#CDC1B4")
-                )
+                ))
             )
             .cornerRadius(8.dp)
             .clickable(action),
@@ -396,7 +400,7 @@ private fun ActionButton(
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = ColorProvider(android.graphics.Color.WHITE)
+                color = ColorProvider(Color(android.graphics.Color.WHITE))
             )
         )
     }

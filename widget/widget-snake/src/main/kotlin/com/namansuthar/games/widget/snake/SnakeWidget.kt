@@ -6,6 +6,10 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
+import androidx.glance.appwidget.GlanceAppWidgetManager
+import androidx.glance.appwidget.cornerRadius
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionParametersOf
 import androidx.glance.action.clickable
@@ -101,7 +105,7 @@ fun SnakeWidgetContent(glanceId: GlanceId) {
     Box(
         modifier = GlanceModifier
             .fillMaxSize()
-            .background(ColorProvider(android.graphics.Color.parseColor("#2C3E50")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#2C3E50"))))
             .cornerRadius(16.dp)
             .padding(12.dp)
     ) {
@@ -121,7 +125,7 @@ fun SnakeWidgetContent(glanceId: GlanceId) {
                     style = TextStyle(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ColorProvider(android.graphics.Color.WHITE)
+                        color = ColorProvider(Color(android.graphics.Color.WHITE))
                     )
                 )
                 Spacer(modifier = GlanceModifier.defaultWeight())
@@ -130,7 +134,7 @@ fun SnakeWidgetContent(glanceId: GlanceId) {
                     style = TextStyle(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ColorProvider(android.graphics.Color.parseColor("#2ECC71"))
+                        color = ColorProvider(Color(android.graphics.Color.parseColor("#2ECC71")))
                     )
                 )
             }
@@ -164,7 +168,7 @@ fun SnakeWidgetContent(glanceId: GlanceId) {
                         text = "${state.speed}x",
                         style = TextStyle(
                             fontSize = 14.sp,
-                            color = ColorProvider(android.graphics.Color.WHITE)
+                            color = ColorProvider(Color(android.graphics.Color.WHITE))
                         )
                     )
                 }
@@ -211,7 +215,7 @@ private fun SnakeGridCell(
     isSnake: Boolean,
     isHead: Boolean,
     isFood: Boolean,
-    size: DpSize
+    size: Dp
 ) {
     val backgroundColor = when {
         isFood -> android.graphics.Color.parseColor("#E74C3C")
@@ -224,9 +228,9 @@ private fun SnakeGridCell(
         modifier = GlanceModifier
             .size(size)
             .padding(0.5.dp)
-            .background(ColorProvider(backgroundColor))
+            .background(ColorProvider(Color(backgroundColor)))
             .cornerRadius(2.dp)
-    )
+    ) {}
 }
 
 @Composable
@@ -238,7 +242,7 @@ private fun ControlButton(
         modifier = GlanceModifier
             .height(36.dp)
             .padding(horizontal = 12.dp)
-            .background(ColorProvider(android.graphics.Color.parseColor("#3498DB")))
+            .background(ColorProvider(Color(android.graphics.Color.parseColor("#3498DB"))))
             .cornerRadius(8.dp)
             .clickable(onClick),
         contentAlignment = Alignment.Center
@@ -248,7 +252,7 @@ private fun ControlButton(
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = ColorProvider(android.graphics.Color.WHITE)
+                color = ColorProvider(Color(android.graphics.Color.WHITE))
             )
         )
     }
@@ -389,7 +393,7 @@ class SnakeAutoPlayWorker(
 
                     // Update widget UI
                     val glanceId = GlanceAppWidgetManager(applicationContext)
-                        .getGlanceIds(SnakeWidgetReceiver::class.java)
+                        .getGlanceIds(SnakeWidget::class.java)
                         .find { it.toString() == widgetId }
 
                     glanceId?.let {

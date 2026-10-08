@@ -229,8 +229,8 @@ class Game2048Engine : GameEngine<Game2048State, Game2048Action> {
         return rotated.any { row ->
             val nonZero = row.filter { it != 0 }
 
-            // Can move if there are empty spaces before non-zero tiles
-            if (row.indexOf(row.first { it != 0 }) > 0) return@any true
+            // Can move if any empty space sits before a non-zero tile
+            if (row.take(nonZero.size) != nonZero) return@any true
 
             // Can move if adjacent tiles can merge
             for (i in 0 until nonZero.size - 1) {

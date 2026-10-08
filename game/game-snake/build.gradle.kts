@@ -42,6 +42,7 @@ dependencies {
     // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
+    implementation(libs.compose.material.icons.extended)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)

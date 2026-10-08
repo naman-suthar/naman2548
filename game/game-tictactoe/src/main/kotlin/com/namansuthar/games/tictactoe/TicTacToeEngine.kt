@@ -75,17 +75,17 @@ class TicTacToeEngine : GameEngine<TicTacToeState, TicTacToeAction> {
             when (winner) {
                 Player.X -> {
                     newXWins++
-                    events.add(GameEvent.Achievement("Player X wins!"))
+                    events.add(GameEvent.Achievement("win", Player.X))
                 }
                 Player.O -> {
                     newOWins++
-                    events.add(GameEvent.Achievement("Player O wins!"))
+                    events.add(GameEvent.Achievement("win", Player.O))
                 }
                 Player.NONE -> {} // Should not happen
             }
         } else if (isBoardFull(newGrid)) {
             newDraws++
-            events.add(GameEvent.Achievement("It's a draw!"))
+            events.add(GameEvent.Achievement("draw", newDraws))
         }
 
         val newState = state.copy(

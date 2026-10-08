@@ -32,7 +32,7 @@ class TicTacToeViewModel(
 
     private fun loadGameState() {
         viewModelScope.launch {
-            val savedState = repository.getGameState("tictactoe")
+            val savedState = repository.getGameState(gameType = "tictactoe", instanceId = "main")
             if (savedState != null) {
                 _state.value = engine.deserialize(savedState.stateData)
             }
@@ -42,10 +42,12 @@ class TicTacToeViewModel(
     private fun saveGameState() {
         viewModelScope.launch {
             repository.saveGameState(
-                gameId = "tictactoe",
                 gameType = "tictactoe",
+                instanceId = "main",
                 stateData = engine.serialize(currentState),
-                score = getOverallScore()
+                score = getOverallScore(),
+                moves = currentState.moveHistory.size,
+                isGameOver = currentState.isGameOver
             )
         }
     }
