@@ -4,6 +4,7 @@ import android.app.Application
 import com.namansuthar.games.core.data.di.dataModule
 import com.namansuthar.games.game2048.di.game2048Module
 import com.namansuthar.games.snake.di.snakeModule
+import com.namansuthar.games.tictactoe.di.ticTacToeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -24,7 +25,8 @@ class BoardGamesApplication : Application() {
             modules(
                 dataModule,
                 game2048Module,
-                snakeModule
+                snakeModule,
+                ticTacToeModule
             )
         }
     }

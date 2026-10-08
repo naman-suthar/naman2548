@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import com.namansuthar.games.feature.home.HomeScreen
 import com.namansuthar.games.game2048.ui.Game2048Screen
 import com.namansuthar.games.snake.ui.SnakeScreen
+import com.namansuthar.games.tictactoe.ui.TicTacToeScreen
 
 /**
  * Main app composable with navigation.
@@ -49,6 +50,9 @@ fun GameApp(
                     SnakeScreen(
                         onBack = { navController.popBackStack() }
                     )
+                }
+                "tictactoe" -> {
+                    TicTacToeScreen()
                 }
                 else -> {
                     // Placeholder for other games

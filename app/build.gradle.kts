@@ -62,9 +62,12 @@ dependencies {
     implementation(project(":game:engine"))
     implementation(project(":game:game-2048"))
     implementation(project(":game:game-snake"))
+    implementation(project(":game:game-tictactoe"))
     implementation(project(":feature:home"))
     implementation(project(":design-system"))
     implementation(project(":widget:widget-2048"))
+    implementation(project(":widget:widget-snake"))
+    implementation(project(":widget:widget-tictactoe"))
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
