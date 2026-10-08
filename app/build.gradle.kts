@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
 }
 
 android {
@@ -15,8 +14,6 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -24,11 +21,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isMinifyEnabled = false
         }
     }
 
@@ -57,7 +50,7 @@ android {
 }
 
 dependencies {
-    // Modules
+    // Modules - only essential ones
     implementation(project(":core:data"))
     implementation(project(":game:engine"))
     implementation(project(":game:game-2048"))
@@ -65,9 +58,6 @@ dependencies {
     implementation(project(":game:game-tictactoe"))
     implementation(project(":feature:home"))
     implementation(project(":design-system"))
-    implementation(project(":widget:widget-2048"))
-    implementation(project(":widget:widget-snake"))
-    implementation(project(":widget:widget-tictactoe"))
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
@@ -84,14 +74,4 @@ dependencies {
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
-
-    // Testing
-    testImplementation(libs.bundles.testing)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.compose.ui.test.junit4)
-
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
 }
