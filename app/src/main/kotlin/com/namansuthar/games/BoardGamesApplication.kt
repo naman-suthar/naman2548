@@ -2,6 +2,7 @@ package com.namansuthar.games
 
 import android.app.Application
 import com.namansuthar.games.core.data.di.dataModule
+import com.namansuthar.games.game2048.di.game2048Module
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -20,8 +21,8 @@ class BoardGamesApplication : Application() {
             androidLogger()
             androidContext(this@BoardGamesApplication)
             modules(
-                dataModule
-                // Add more modules as they're created
+                dataModule,
+                game2048Module
             )
         }
     }

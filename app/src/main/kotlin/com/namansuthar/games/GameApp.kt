@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.namansuthar.games.feature.home.HomeScreen
+import com.namansuthar.games.game2048.ui.Game2048Screen
 
 /**
  * Main app composable with navigation.
@@ -37,11 +38,20 @@ fun GameApp(
         ) { backStackEntry ->
             val gameId = backStackEntry.arguments?.getString("gameId") ?: return@composable
 
-            // Placeholder for game screens (will be implemented next)
-            GamePlaceholderScreen(
-                gameId = gameId,
-                onBack = { navController.popBackStack() }
-            )
+            when (gameId) {
+                "2048" -> {
+                    Game2048Screen(
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+                else -> {
+                    // Placeholder for other games
+                    GamePlaceholderScreen(
+                        gameId = gameId,
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+            }
         }
 
         composable("settings") {
