@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "376485259173",
+    "project_id": "app-tester-dcb67",
+    "storage_bucket": "app-tester-dcb67.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376485259173:android:0ad65ccc4e371386172a4c",
+        "android_client_info": {
+          "package_name": "app.onedollar.audiotranscriber"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMDO2TavFGzMA0HYEt1yyffJKLGIbwZwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376485259173:android:8b848eda1d77f89d172a4c",
+        "android_client_info": {
+          "package_name": "com.namansuthar.games"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMDO2TavFGzMA0HYEt1yyffJKLGIbwZwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
