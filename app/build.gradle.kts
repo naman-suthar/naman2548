@@ -61,6 +61,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":game:engine"))
     implementation(project(":game:game-2048"))
+    implementation(project(":game:game-snake"))
     implementation(project(":feature:home"))
     implementation(project(":design-system"))
     implementation(project(":widget:widget-2048"))

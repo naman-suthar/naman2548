@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.namansuthar.games.feature.home.HomeScreen
 import com.namansuthar.games.game2048.ui.Game2048Screen
+import com.namansuthar.games.snake.ui.SnakeScreen
 
 /**
  * Main app composable with navigation.
@@ -41,6 +42,11 @@ fun GameApp(
             when (gameId) {
                 "2048" -> {
                     Game2048Screen(
+                        onBack = { navController.popBackStack() }
+                    )
+                }
+                "snake" -> {
+                    SnakeScreen(
                         onBack = { navController.popBackStack() }
                     )
                 }
