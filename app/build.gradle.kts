@@ -63,6 +63,7 @@ dependencies {
     implementation(project(":game:game-2048"))
     implementation(project(":feature:home"))
     implementation(project(":design-system"))
+    implementation(project(":widget:widget-2048"))
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
